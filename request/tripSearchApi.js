@@ -12,7 +12,7 @@ function tripSearchResponse(){
     }
     })
     .then((res) => {
-    console.log(JSON.stringify(res.data))
+    JSON.stringify(res.data)
     })
     .catch((error) => {
     console.error(error)

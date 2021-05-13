@@ -59,13 +59,13 @@ class TripSearchBot extends ActivityHandler {
                 }
             } else {
                 // Add message details to the conversation data.
-                conversationData.timestamp = context.activity.timestamp.toLocaleString();
-                conversationData.channelId = context.activity.channelId;
+                // conversationData.timestamp = context.activity.timestamp.toLocaleString();
+                // conversationData.channelId = context.activity.channelId;
 
                 // Display state data.
                 await context.sendActivity(`${ userProfile.name } searched for: ${ context.activity.text }`);
-                await context.sendActivity(`Message received at: ${ conversationData.timestamp }`);
-                await context.sendActivity(`Message received from: ${ conversationData.channelId }`);
+                // await context.sendActivity(`Message received at: ${ conversationData.timestamp }`);
+                // await context.sendActivity(`Message received from: ${ conversationData.channelId }`);
                 await this.dialog.run(context, this.dialogState);
             }
             // Run the Dialog with the new message Activity.
