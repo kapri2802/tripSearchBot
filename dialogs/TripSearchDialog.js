@@ -3,7 +3,7 @@
 
 const { LuisRecognizer } = require('botbuilder-ai');
 const { ComponentDialog, DialogSet, DialogTurnStatus, TextPrompt, WaterfallDialog,ChoicePrompt } = require('botbuilder-dialogs');
-// const {tripSearchResponse} = require('../request/tripSearchApi')
+const {tripSearchResponse} = require('../request/tripSearchApi')
 const {tripResponse} = require('../response/tripSearchResponse')
 const apiResponse = require('../apiresponse.json')
 const MAIN_WATERFALL_DIALOG = 'mainWaterfallDialog';
@@ -62,7 +62,7 @@ class TripSearchDialog extends ComponentDialog {
     }
 
     async buildResponse(stepContext){
-        var apiResp = apiResponse;
+        var apiResp = await tripSearchResponse();
         console.log("Inside build response")
         if(stepContext.values.userIntent == "SEARCH_Agent"){
             var response = await tripResponse(stepContext.values.userIntent,apiResp)
